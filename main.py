@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import mediapipe as mp
 from mp_utils import mp_utilities
 from tensorflow import keras
 
