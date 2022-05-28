@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from mp_utils import mp_utilities
+from mp_utils import MpUtils
 from tensorflow import keras
 
 
@@ -8,7 +8,7 @@ def main():
     """ Contains the logic to handle frame data capture, model prediction and prediction visualization
     """
     # Instantiating mp_utilities object to handle Mediapipe functions
-    utils = mp_utilities()
+    utils = MpUtils()
     actions = np.array(['ayuda', 'clase', 'donde', 'gracias', 'hola', 'necesitar', 'no entender', 'repetir', 'n-a', 'empty'])
     # opening machine learning model from 'actions.h5' file
     model = keras.models.load_model("actions.h5")

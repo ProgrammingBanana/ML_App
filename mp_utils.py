@@ -2,7 +2,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 
-class mp_utilities():
+class MpUtils():
     def __init__(self):
         """ Constructor method, sets up necessary mediapipe utilities and model
         """ 
@@ -44,8 +44,6 @@ class mp_utilities():
 
         # the last arguments is the type of connections to use when drawing
         # It shows what landmark is connected to what other landmark
-        # Draws landmarks for all body areas
-
         self.mp_drawing.draw_landmarks(image, results.face_landmarks, self.mp_holistic.FACEMESH_CONTOURS,
                                 self.mp_drawing.DrawingSpec(color=(230, 216, 173), thickness=1, circle_radius=1),
                                 self.mp_drawing.DrawingSpec(color=(255, 121, 80), thickness=1, circle_radius=1))
@@ -71,6 +69,7 @@ class mp_utilities():
         Returns:
             Numpy array: Numpy array containing all landmark data
         """
+        
         # If null array is array of zeros, else array of pose coordinates
         pose = np.array([[res.x, res.y, res.z, res.visibility] for res in results.pose_landmarks.landmark]).flatten() if results.left_hand_landmarks else np.zeros(132) 
         # If null array is array of zeros, else array of left hand coordinates
