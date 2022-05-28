@@ -7,7 +7,7 @@ from tensorflow import keras
 def main():
     utils = mp_utilities()
     actions = np.array(['ayuda', 'clase', 'donde', 'gracias', 'hola', 'necesitar', 'no_entender', 'repetir', 'n-a', 'empty'])
-    model = keras.models.load_model("actions_models/actions_3.h5")
+    model = keras.models.load_model("actions.h5")
     sequence = [] # Append data over 30 frames
     word = "" # Allows us to concatenate list of predictions
     threshold = 0.45 # Confidence metric (only render results if it meets our threshold value)
